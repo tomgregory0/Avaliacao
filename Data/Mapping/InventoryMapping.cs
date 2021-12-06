@@ -11,7 +11,8 @@ namespace Data.Mapping
 
             builder.HasKey(o => o.Id);
 
-            builder.HasMany(f => f.Warehouse)
+
+            builder.HasMany(f => f.Warehouses)
                   .WithOne(p => p.Inventory)
                       .HasForeignKey(p => p.InventoryId);
 
@@ -19,6 +20,7 @@ namespace Data.Mapping
             builder.HasOne(f => f.Product)
                 .WithOne(s => s.Inventory)
                     .HasForeignKey<Inventory>(s => new { s.ProductSKU, s.ProductId });
+
         }
     }
 }

@@ -39,9 +39,9 @@ namespace Domain.Services.Common
             await _repository.Update(entity);
         }
 
-        public virtual async Task Delete(long id)
+        public virtual async Task Delete(TEntity entity)
         {
-            await _repository.Delete(id);
+            await _repository.Delete(entity);
         }
 
         public virtual async Task Salvar(TEntity entity)

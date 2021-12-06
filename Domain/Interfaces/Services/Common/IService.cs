@@ -14,7 +14,7 @@ namespace Domain.Interfaces.Services.Common
 
         Task Update(TEntity entity);
 
-        Task Delete(long id);
+        Task Delete(TEntity entity);
 
     }
 }

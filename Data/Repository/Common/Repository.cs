@@ -48,9 +48,9 @@ namespace Data.Repository.Common
             await SaveChanges();
         }
 
-        public virtual async Task Delete(long id)
+        public virtual async Task Delete(TEntity entity)
         {
-            DbSet.Remove(new TEntity { Id = id });
+            DbSet.Remove(entity);
             await SaveChanges();
         }
         public async Task<int> SaveChanges()

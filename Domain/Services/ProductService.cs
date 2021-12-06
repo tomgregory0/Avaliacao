@@ -34,7 +34,7 @@ namespace Domain.Services
             if (!(productGet.Result?.SKU > 0))
                 throw new Exception($"Produto não existente!");
 
-            _productRepository.Delete(productGet.Id);
+            _productRepository.Delete(productGet.Result);
         }
 
 
@@ -45,6 +45,8 @@ namespace Domain.Services
                 if (product?.SKU is not null)
                 {
                     var data = _productRepository.FindById(product.SKU);
+
+
                     if (data.Result is not null)
                     {
                         var productData = data.Result;

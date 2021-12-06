@@ -11,6 +11,7 @@ namespace Data.Mapping
             builder.HasKey(o => new { o.SKU, o.Id });
 
             builder.Property(p => p.Name).IsRequired();
+
         }
     }
 }

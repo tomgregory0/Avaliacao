@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class Warehouse : Entity
+    public class Warehouses : Entity
     {
         public long InventoryId { get; set; }
         public string Locality { get; set; }

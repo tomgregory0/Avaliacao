@@ -18,24 +18,24 @@ namespace Data.Repositories
 
         public bool ValidationId(long sku)
         {
-            return DbSet.Any(c => c.SKU == sku);
+            return Db.Product.Any(c => c.SKU == sku);
         }
         public override async Task<List<Product>> FindAll()
         {
             return await Db.Product
-                            .AsNoTrackingWithIdentityResolution()
+                            .AsNoTracking()
                             .Include(p => p.Inventory)
-                                .ThenInclude(p => p.Warehouse)
+                                .ThenInclude(p => p.Warehouses)
                             .ToListAsync();
         }
         public override async Task<Product> FindById(long sku)
         {
+            return await Db.Product.
+                           Include(p => p.Inventory)
+                            .ThenInclude(c => c.Warehouses)
+                           .Where(d => d.SKU == sku)
+                           .FirstOrDefaultAsync();
 
-            return await DbSet.Include(p => p.Inventory)
-                                    .ThenInclude(c => c.Warehouse)
-                             .Where(d => d.SKU == sku)
-                             .AsNoTracking()
-                             .FirstOrDefaultAsync();
         }
     }
 }

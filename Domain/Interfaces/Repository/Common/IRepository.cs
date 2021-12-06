@@ -13,7 +13,7 @@ namespace Domain.Interfaces.Common
 
         Task Update(TEntity entity);
 
-        Task Delete(long id);
+        Task Delete(TEntity entity);
 
         Task<int> SaveChanges();
     }

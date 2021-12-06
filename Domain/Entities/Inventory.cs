@@ -6,15 +6,11 @@ namespace Domain.Entities
 {
     public class Inventory : Entity
     {
-        //public Inventory() 
-        //{
-        //    Warehouse = new List<Warehouse>();
-        //}
-        public long Quantity
+        public long? Quantity
         {
             get
             {
-                return Warehouse.Sum(x => x.Quantity);
+                return Warehouses?.Sum(x => x.Quantity);
             }
         }
 
@@ -23,6 +19,6 @@ namespace Domain.Entities
 
         public virtual Product Product { get; set; }
 
-        public virtual List<Warehouse> Warehouse { get; set; }
+        public virtual List<Warehouses> Warehouses { get; set; }
     }
 }

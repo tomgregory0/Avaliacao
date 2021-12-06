@@ -6,19 +6,14 @@ namespace API.DTO
     public class InventoryDTO
     {
 
-        public long Quantity
+        public long? Quantity
         {
             get
             {
-                return Warehouse.Sum(x => x.Quantity);
+                return Warehouses?.Sum(x => x.Quantity);
             }
         }
 
-        public long ProductSKU { get; set; }
-        public long ProductId { get; set; }
-
-
-
-        public virtual List<WarehouseDTO> Warehouse { get; set; }
+        public virtual List<WarehouseDTO> Warehouses { get; set; }
     }
 }

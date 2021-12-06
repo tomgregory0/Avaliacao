@@ -6,7 +6,7 @@ namespace Domain.Entities
     {
         public long SKU { get; set; }
         public string Name { get; set; }
-        public bool IsMarketable
+        public bool? IsMarketable
         {
             get
             {

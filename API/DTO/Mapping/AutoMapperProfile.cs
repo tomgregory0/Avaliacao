@@ -10,7 +10,7 @@ namespace API.DTO.Mapping
 
             CreateMap<Product, ProductDTO>().ReverseMap();
             CreateMap<Inventory, InventoryDTO>().ReverseMap();
-            CreateMap<Warehouse, WarehouseDTO>().ReverseMap();
+            CreateMap<Warehouses, WarehouseDTO>().ReverseMap();
         }
     }
 }
